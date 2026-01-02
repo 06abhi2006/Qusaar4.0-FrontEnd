@@ -17,7 +17,7 @@ export const ProcessClaimDialog: React.FC<ProcessClaimDialogProps> = ({ claim, i
         setLoading(true);
         try {
             const token = localStorage.getItem('token');
-            await axios.put(`http://localhost:3000/api/insurance/claims/${claim.id}/status`, {
+            await axios.put(`${import.meta.env.VITE_API_BASE_URL}/insurance/claims/${claim.id}/status`, {
                 status,
                 notes
             }, {

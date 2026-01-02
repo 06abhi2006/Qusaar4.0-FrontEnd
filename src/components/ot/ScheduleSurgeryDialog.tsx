@@ -42,7 +42,7 @@ export const ScheduleSurgeryDialog: React.FC<ScheduleSurgeryDialogProps> = ({ is
     const fetchDoctors = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:3000/api/admin/doctors', {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/admin/doctors`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setDoctors(response.data);
@@ -68,7 +68,7 @@ export const ScheduleSurgeryDialog: React.FC<ScheduleSurgeryDialogProps> = ({ is
 
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:3000/api/ot/schedule', {
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/ot/schedule`, {
                 patientId: formData.patientId,
                 doctorId: formData.doctorId,
                 theaterName: formData.theaterName,

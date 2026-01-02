@@ -24,7 +24,7 @@ export const IPDDashboard: React.FC = () => {
     const fetchWards = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:3000/api/ipd/wards', {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/ipd/wards`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setWards(response.data);

@@ -23,7 +23,7 @@ export const ManageCaseDialog: React.FC<ManageCaseDialogProps> = ({ isOpen, onCl
         setMessage(null);
         try {
             const token = localStorage.getItem('token');
-            await axios.put(`http://localhost:3000/api/emergency/${caseData.id}/triage`,
+            await axios.put(`${import.meta.env.VITE_API_BASE_URL}/emergency/${caseData.id}/triage`,
                 { level },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -41,7 +41,7 @@ export const ManageCaseDialog: React.FC<ManageCaseDialogProps> = ({ isOpen, onCl
         setMessage(null);
         try {
             const token = localStorage.getItem('token');
-            await axios.put(`http://localhost:3000/api/emergency/${caseData.id}/status`,
+            await axios.put(`${import.meta.env.VITE_API_BASE_URL}/emergency/${caseData.id}/status`,
                 { status },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -60,7 +60,7 @@ export const ManageCaseDialog: React.FC<ManageCaseDialogProps> = ({ isOpen, onCl
         setMessage(null);
         try {
             const token = localStorage.getItem('token');
-            await axios.put(`http://localhost:3000/api/emergency/${caseData.id}/assign`,
+            await axios.put(`${import.meta.env.VITE_API_BASE_URL}/emergency/${caseData.id}/assign`,
                 { providerId },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

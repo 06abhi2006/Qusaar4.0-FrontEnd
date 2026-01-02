@@ -30,7 +30,7 @@ export const AddMedicineDialog: React.FC<AddMedicineDialogProps> = ({ isOpen, on
         setLoading(true);
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:3000/api/pharmacy/inventory', formData, {
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/pharmacy/inventory`, formData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             onSuccess();

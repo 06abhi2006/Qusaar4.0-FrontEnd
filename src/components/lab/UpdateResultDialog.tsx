@@ -20,7 +20,7 @@ export const UpdateResultDialog: React.FC<UpdateResultDialogProps> = ({ request,
         try {
             const token = localStorage.getItem('token');
             // Assuming endpoint handled by controller
-            await axios.put(`http://localhost:3000/api/lab/requests/${request.id}/result`, {
+            await axios.put(`${import.meta.env.VITE_API_BASE_URL}/lab/requests/${request.id}/result`, {
                 resultValue: result,
                 notes: notes,
                 status: 'COMPLETED'

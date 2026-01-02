@@ -24,10 +24,10 @@ export const LabDashboard: React.FC = () => {
             const config = { headers: { Authorization: `Bearer ${token}` } };
 
             if (activeTab === 'requests') {
-                const res = await axios.get('http://localhost:3000/api/lab/requests', config);
+                const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/lab/requests`, config);
                 setRequests(res.data);
             } else {
-                const res = await axios.get('http://localhost:3000/api/lab/tests', config);
+                const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/lab/tests`, config);
                 setTests(res.data);
             }
         } catch (error) {

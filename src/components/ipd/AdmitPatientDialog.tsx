@@ -44,7 +44,7 @@ export const AdmitPatientDialog: React.FC<AdmitPatientDialogProps> = ({ isOpen, 
             // Based on previous knowledge, /api/admin/doctors or /api/doctor/search might exist and return list.
             // Let's try a common pattern or search based on prior conversational context.
             // Using /api/admin/doctors for now as it usually lists all.
-            const response = await axios.get('http://localhost:3000/api/admin/doctors', {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/admin/doctors`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setDoctors(response.data);
@@ -62,7 +62,7 @@ export const AdmitPatientDialog: React.FC<AdmitPatientDialogProps> = ({ isOpen, 
 
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:3000/api/ipd/admit', {
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/ipd/admit`, {
                 ...formData,
                 bedId: bed.id
             }, {

@@ -24,10 +24,10 @@ export const InsuranceDashboard: React.FC = () => {
             const config = { headers: { Authorization: `Bearer ${token}` } };
 
             if (activeTab === 'claims') {
-                const res = await axios.get('http://localhost:3000/api/insurance/claims', config);
+                const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/insurance/claims`, config);
                 setClaims(res.data);
             } else {
-                const res = await axios.get('http://localhost:3000/api/insurance/policies', config);
+                const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/insurance/policies`, config);
                 setPolicies(res.data);
             }
         } catch (error) {

@@ -26,7 +26,7 @@ export const AdmissionDetailsDialog: React.FC<AdmissionDetailsDialogProps> = ({ 
 
         try {
             const token = localStorage.getItem('token');
-            await axios.put(`http://localhost:3000/api/ipd/discharge/${admission.id}`, {}, {
+            await axios.put(`${import.meta.env.VITE_API_BASE_URL}/ipd/discharge/${admission.id}`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             onDischarge();

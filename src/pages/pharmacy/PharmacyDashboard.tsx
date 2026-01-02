@@ -18,7 +18,7 @@ export const PharmacyDashboard: React.FC = () => {
     const fetchInventory = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:3000/api/pharmacy/inventory', {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/pharmacy/inventory`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setInventory(response.data);

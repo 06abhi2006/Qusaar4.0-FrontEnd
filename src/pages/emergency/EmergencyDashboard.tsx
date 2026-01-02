@@ -19,7 +19,7 @@ export const EmergencyDashboard: React.FC = () => {
     const fetchCases = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:3000/api/emergency', {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/emergency`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setCases(response.data);

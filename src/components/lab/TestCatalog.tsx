@@ -32,7 +32,7 @@ export const TestCatalog: React.FC<TestCatalogProps> = ({ tests, onRefresh }) =>
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:3000/api/lab/tests', formData, {
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/lab/tests`, formData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setIsAddOpen(false);

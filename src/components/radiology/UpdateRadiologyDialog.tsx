@@ -20,7 +20,7 @@ export const UpdateRadiologyDialog: React.FC<UpdateRadiologyDialogProps> = ({ re
         setLoading(true);
         try {
             const token = localStorage.getItem('token');
-            await axios.put(`http://localhost:3000/api/radiology/requests/${request.id}`, {
+            await axios.put(`${import.meta.env.VITE_API_BASE_URL}/radiology/requests/${request.id}`, {
                 findings,
                 imageUrl,
                 reportUrl,

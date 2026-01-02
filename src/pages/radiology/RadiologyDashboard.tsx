@@ -23,7 +23,7 @@ export const RadiologyDashboard: React.FC = () => {
             // Let's filter client side for simplicity if API returns all, or pass status param.
             // Based on controller: status query param is supported.
             const status = activeTab === 'pending' ? 'PENDING' : 'COMPLETED';
-            const res = await axios.get(`http://localhost:3000/api/radiology/requests?status=${status}`, {
+            const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/radiology/requests?status=${status}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setRequests(res.data);

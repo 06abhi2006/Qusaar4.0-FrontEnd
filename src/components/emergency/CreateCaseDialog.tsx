@@ -34,7 +34,7 @@ export const CreateCaseDialog: React.FC<CreateCaseDialogProps> = ({ isOpen, onCl
                 patientId: formData.patientId || undefined // Send undefined if empty string
             };
 
-            await axios.post('http://localhost:3000/api/emergency', payload, {
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/emergency`, payload, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
